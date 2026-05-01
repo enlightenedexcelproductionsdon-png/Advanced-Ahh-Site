@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Ahh Site — Audio Effects Playground</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Advanced Ahh Site — Audio Effects Playground</h1>
+  </header>
+
+  <main>
+    <section class="uploader">
+      <div class="file-row">
+        <label class="file-label">
+          Upload Audio
+          <input id="audioFile" type="file" accept="audio/*" />
+        </label>
+        <label class="file-label">
+          Upload Video (extract audio)
+          <input id="videoFile" type="file" accept="video/*" />
+        </label>
+      </div>
+
+      <div class="controls">
+        <button id="playBtn">Play</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="stopBtn">Stop</button>
+        <button id="trimBtn">Trim Selection</button>
+        <label>Start <input id="trimStart" type="number" step="0.01" min="0" value="0" /></label>
+        <label>End <input id="trimEnd" type="number" step="0.01" min="0" value="0" /></label>
+      </div>
+
+      <div class="export-row">
+        <select id="exportFormat">
+          <option value="wav">WAV</option>
+          <option value="mp3">MP3 (requires lamejs)</option>
+          <option value="ogg">OGG (requires libvorbis)</option>
+          <option value="flac">FLAC (requires libflac)</option>
+          <option value="m4a">M4A (requires encoder)</option>
+        </select>
+        <button id="exportBtn">Export</button>
+      </div>
+    </section>
+
+    <section class="effects">
+      <h2>Effects (click to add / remove)</h2>
+      <div id="effectsList" class="effects-list">
+        <!-- Effects populated by JS -->
+      </div>
+    </section>
+
+    <section class="effect-panel">
+      <h2>Active Effects Chain</h2>
+      <ol id="activeChain"></ol>
+    </section>
+
+    <section class="ai-effect">
+      <h2>AI Audio Effect (stub)</h2>
+      <textarea id="aiDescription" placeholder="Describe the effect you'd like..."></textarea>
+      <label>Temperature <input id="aiTemperature" type="range" min="0" max="1" step="0.01" value="0.5" /></label>
+      <button id="aiGenerateBtn">Click to AI Audio Effect</button>
+      <div id="aiStatus"></div>
+    </section>
+
+    <section class="sliders-section">
+      <button id="openSlidersBtn">Open Parameter Panel</button>
+    </section>
+  </main>
+
+  <!-- Modal / slider template will be fetched from sliders.html -->
+  <div id="slidersModal" class="modal hidden" role="dialog" aria-hidden="true"></div>
+
+  <template id="effect-template">
+    <div class="effect-card">
+      <div class="effect-header">
+        <span class="effect-name"></span>
+        <button class="toggle-effect">Add</button>
+        <button class="open-params">Params</button>
+      </div>
+      <div class="effect-desc"></div>
+    </div>
+  </template>
+
+  <footer>
+    <small>Advanced Ahh Site — Demo. Exports WAV in-browser. Add encoders to enable other formats.</small>
+  </footer>
+
+  <script src="aas-audio.js"></script>
+  <script src="AdvancedAhhSite.js"></script>
+  <script src="sliders.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

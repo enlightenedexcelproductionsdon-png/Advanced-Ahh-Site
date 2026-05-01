@@ -1,0 +1,61 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#6ee7b7;
+  --muted:#9aa6b2;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background: linear-gradient(180deg,#071229 0%, #081026 60%);
+  color:#e6eef6;
+  padding:18px;
+}
+header h1{margin:0 0 12px 0;font-weight:600}
+.uploader, .effects, .effect-panel, .ai-effect, .sliders-section{
+  background:var(--glass);
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:12px;
+  box-shadow:0 6px 18px rgba(2,6,23,0.6);
+}
+.file-row{display:flex;gap:8px;flex-wrap:wrap}
+.file-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.file-label input{display:none}
+.controls{display:flex;gap:8px;align-items:center;margin-top:10px}
+.controls button{padding:8px 12px;border-radius:8px;background:#111827;border:none;color:var(--accent);cursor:pointer}
+.export-row{display:flex;gap:8px;align-items:center;margin-top:8px}
+.effects-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:8px;
+}
+.effect-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.03);
+}
+.effect-header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.effect-name{font-weight:600}
+.effect-desc{font-size:0.9rem;color:var(--muted);margin-top:6px}
+.toggle-effect, .open-params{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent);padding:6px 8px;border-radius:6px;cursor:pointer}
+.active{border-color:var(--accent);box-shadow:0 4px 12px rgba(110,231,183,0.06)}
+#activeChain{margin:8px 0;padding-left:18px}
+.ai-effect textarea{width:100%;height:80px;background:transparent;border:1px solid rgba(255,255,255,0.04);border-radius:6px;padding:8px;color:inherit}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:720px;max-width:95%;background:var(--card);padding:12px;border-radius:10px;box-shadow:0 16px 40px rgba(2,6,23,0.8);z-index:200}
+.hidden{display:none}
+.modal header{display:flex;justify-content:space-between;align-items:center}
+.slider-row{display:flex;gap:12px;align-items:center;margin:8px 0}
+.slider-row label{width:150px}
+.slider-row input[type="range"]{flex:1}
+.footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
